@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whispers of Ages: An Illuminated Compendium of Wisdom</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Roboto:wght@300;400;500;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #1a237e; /* Deep Indigo */
+            --secondary-color: #5c6bc0; /* Indigo */
+            --accent-color: #ff8f00; /* Amber Accent */
+            --background-light: #e8eaf6; /* Very Light Indigo */
+            --background-gradient-start: #c5cae9; /* Lightest Indigo */
+            --background-gradient-middle: #9fa8da; /* Lighter Indigo */
+            --background-gradient-end: #7986cb; /* Medium Indigo */
+            --text-dark: #1a237e;
+            --text-medium: #303f9f; /* Darker Indigo */
+            --border-color: #d0d9ff; /* Very Light Blue */
+            --table-header-bg: var(--primary-color);
+            --section-header-bg: var(--text-medium);
+            --row-even-bg: #f5f5f9; /* Subtle off-white */
+            --row-hover-bg: #e8eaf6; /* Matches background-light */
+            --box-shadow-light: rgba(0, 0, 0, 0.08);
+            --box-shadow-medium: rgba(0, 0, 0, 0.15);
+            --box-shadow-deep: rgba(0, 0, 0, 0.25);
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.9; /* Increased line height */
+            margin: 0;
+            padding: 80px 20px; /* More padding */
+            background: linear-gradient(135deg, var(--background-gradient-start) 0%, var(--background-gradient-middle) 50%, var(--background-gradient-end) 100%); /* Multi-stop gradient */
+            color: var(--text-medium);
+            min-height: 100vh;
+            background-attachment: fixed;
+            position: relative;
+            overflow-x: hidden; /* Prevent horizontal scroll from pseudo-elements */
+        }
+
+        /* Subtle pattern overlay */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgc3Ryb2tlPSIjMDAwIiBzdHJva2Utb3BhY2l0eT0iLjA3IiBzdHJva2UtbGluZWNhcD0ic3F1YXJlIiBzdHJva2Utd2lkdGg9IjIiPgogICAgICAgICAgICA8cGF0aCBkPSJNMCwzMiBDMjEuNzUsMzIgMzIsMCwzMiwwIi8+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik02MCwzMiBDMzguMjUsMzIgMjgsMCwyOCwwIi8+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik02MCwwIEIzOC4yNSwwIDI4LDMyLDI4LDMyIi8+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik0wLDBCMjEuNzUsMCAzMiwzMiwzMiwzMiIvPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+'); /* Adjusted pattern opacity */
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+
+        .container {
+            max-width: 1400px; /* Even wider */
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 60px; /* More padding */
+            border-radius: 24px; /* More rounded */
+            box-shadow: 0 20px 50px var(--box-shadow-deep); /* Deeper shadow */
+            overflow-x: auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 70px; /* More margin */
+            font-size: 4em; /* Larger */
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.15);
+            position: relative;
+            line-height: 1.1;
+            font-weight: 700; /* Bolder heading */
+        }
+
+         h1::after {
+            content: '';
+            display: block;
+            width: 120px;
+            height: 6px;
+            background-color: var(--accent-color);
+            margin: 25px auto 0;
+            border-radius: 3px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 12px; /* More space between rows */
+            margin-top: 50px;
+            overflow: hidden;
+            border-radius: 16px; /* More rounded */
+            box-shadow: 0 10px 30px var(--box-shadow-medium); /* Table shadow */
+        }
+
+        th, td {
+            padding: 25px 35px; /* Generous padding */
+            text-align: left;
+            border: none; /* Remove default borders */
+            vertical-align: top;
+            position: relative; /* For pseudo-elements */
+        }
+
+        th {
+            background-color: var(--table-header-bg);
+            color: white;
+            font-weight: 400; /* Lighter weight for sophistication */
+            text-transform: uppercase;
+            letter-spacing: 0.12em; /* More letter spacing */
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 5px var(--box-shadow-light);
+        }
+
+        /* Apply subtle borders and rounded corners to cells */
+        td {
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 10px; /* Rounded cell corners */
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05); /* Subtle cell shadow */
+        }
+
+         /* Remove specific borders for combined effect */
+        td:first-child {
+            border-right: none;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+         td:nth-child(2) {
+             border-left: none;
+             border-right: none;
+             border-top-left-radius: 0;
+             border-bottom-left-radius: 0;
+             border-top-right-radius: 0;
+             border-bottom-right-radius: 0;
+         }
+         td:last-child {
+             border-left: none;
+             border-top-left-radius: 0;
+             border-bottom-left-radius: 0;
+         }
+
+
+        tbody tr {
+             margin-bottom: 12px; /* Match border-spacing */
+             border-radius: 10px; /* For overall row shape */
+             overflow: hidden;
+        }
+
+
+        tbody tr:nth-child(even) td {
+            background-color: var(--row-even-bg);
+        }
+
+        tbody tr:hover td {
+            background-color: var(--row-hover-bg);
+            transition: background-color 0.4s ease-in-out; /* Smoother transition */
+        }
+
+        /* Add a subtle separator line on hover */
+        tbody tr:hover td:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 15%;
+            right: -1px; /* Position between cells */
+            height: 70%; /* Height of the separator */
+            width: 2px; /* Thickness */
+            background-color: var(--accent-color);
+            opacity: 0.7;
+            transition: opacity 0.4s ease-in-out;
+        }
+
+
+        /* Styling for the section headers within the table */
+        tr.section-header th {
+            background-color: var(--section-header-bg);
+            color: white;
+            font-family: 'Lora', serif;
+            font-size: 1.5em; /* Larger */
+            padding: 35px; /* More padding */
+            text-align: center;
+            border: none;
+            position: sticky;
+            top: 66px; /* Adjust based on main header height */
+            z-index: 10;
+            box-shadow: 0 4px 10px var(--box-shadow-medium);
+            border-radius: 10px 10px 0 0; /* Rounded top corners */
+            letter-spacing: normal; /* Reset letter spacing */
+        }
+
+         tr.section-header:first-child th {
+             border-top-left-radius: 16px; /* Match table border-radius */
+             border-top-right-radius: 16px;
+         }
+
+
+        td:first-child {
+            font-weight: 500;
+            color: var(--text-dark); /* Darker text for quotes */
+            font-style: italic;
+            position: relative;
+        }
+         /* Add a subtle decorative element before the quote */
+         td:first-child::before {
+            content: '“'; /* Opening quote mark */
+            position: absolute;
+            left: 10px; /* Adjust position */
+            top: 10px; /* Adjust position */
+            font-size: 2.5em; /* Large quote mark */
+            color: var(--accent-color);
+            opacity: 0.5;
+            font-family: serif;
+            line-height: 0.5;
+            z-index: -1; /* Behind the text */
+         }
+          td:first-child p { /* Style the actual quote text */
+              margin-top: 10px; /* Space after pseudo quote */
+              margin-left: 20px; /* Space for pseudo quote */
+              font-size: 1.1em;
+              line-height: 1.6;
+          }
+
+
+        td:nth-child(2) { /* Styling for the 'Story' column */
+            font-weight: 500;
+            color: var(--text-medium);
+        }
+
+         td:last-child { /* Styling for the 'Meaning' column */
+            color: var(--text-medium);
+            font-size: 1em;
+            line-height: 1.7;
+         }
+
+        /* Improve scrollbar appearance */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--background-light);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--secondary-color);
+            border-radius: 10px;
+            border: 3px solid var(--background-light); /* Add padding around thumb */
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-color);
+        }
+
+
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+             .container {
+                 padding: 40px;
+                 border-radius: 20px;
+             }
+             h1 {
+                 font-size: 3.5em;
+             }
+             th, td {
+                 padding: 20px 30px;
+             }
+              td:first-child::before {
+                 font-size: 2em;
+                 top: 15px;
+                 left: 8px;
+              }
+               td:first-child p {
+                   margin-top: 5px;
+                   margin-left: 15px;
+                   font-size: 1em;
+               }
+        }
+
+        @media (max-width: 992px) {
+            body {
+                padding: 50px 15px;
+            }
+            .container {
+                padding: 30px;
+                border-radius: 16px;
+            }
+            h1 {
+                font-size: 3em;
+                margin-bottom: 50px;
+            }
+             tr.section-header th {
+                 padding: 30px;
+                 font-size: 1.4em;
+                 top: 58px; /* Adjust sticky position */
+            }
+             td:first-child::before {
+                 font-size: 1.8em;
+                 top: 12px;
+                 left: 6px;
+              }
+               td:first-child p {
+                   margin-top: 3px;
+                   margin-left: 12px;
+                   font-size: 0.95em;
+               }
+             td:nth-child(2) {
+                 font-size: 0.95em;
+             }
+             td:last-child {
+                 font-size: 0.9em;
+             }
+             table {
+                 border-spacing: 0 10px;
+             }
+        }
+
+         @media (max-width: 768px) {
+            body {
+                padding: 40px 10px;
+            }
+            .container {
+                padding: 25px;
+                border-radius: 12px;
+            }
+            h1 {
+                font-size: 2.5em;
+                margin-bottom: 40px;
+            }
+             h1::after {
+                 width: 90px;
+                 margin-top: 15px;
+             }
+            th, td {
+                padding: 15px 20px;
+            }
+             tr.section-header th {
+                 padding: 25px;
+                 font-size: 1.3em;
+                 top: 50px; /* Adjust sticky position */
+             }
+             td:first-child::before {
+                 font-size: 1.6em;
+                 top: 10px;
+                 left: 5px;
+              }
+              td:first-child p {
+                   margin-top: 2px;
+                   margin-left: 10px;
+                   font-size: 0.9em;
+              }
+              td:nth-child(2) {
+                 font-size: 0.9em;
+             }
+              td:last-child {
+                 font-size: 0.85em;
+             }
+             table {
+                 border-spacing: 0 8px;
+             }
+        }
+
+         @media (max-width: 576px) {
+             body {
+                 padding: 30px 5px;
+             }
+             .container {
+                 padding: 15px;
+                 border-radius: 10px;
+             }
+             h1 {
+                 font-size: 2em;
+                 margin-bottom: 30px;
+             }
+              h1::after {
+                 width: 70px;
+                 margin-top: 10px;
+              }
+             th, td {
+                 padding: 12px 15px;
+             }
+              tr.section-header th {
+                 padding: 20px;
+                 font-size: 1.2em;
+                 top: 42px; /* Adjust sticky position */
+             }
+             td:first-child::before {
+                 font-size: 1.4em;
+                 top: 8px;
+                 left: 4px;
+              }
+              td:first-child p {
+                   margin-top: 1px;
+                   margin-left: 8px;
+                   font-size: 0.85em;
+               }
+              td:nth-child(2), td:last-child {
+                 font-size: 0.8em;
+             }
+             table {
+                 border-spacing: 0 5px;
+             }
+         }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Echoes of Ages:<br>An Illuminated Compendium of Wisdom</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Quote</th>
+                    <th>Story</th>
+                    <th>Meaning and Context</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="section-header"><th colspan="3">Wisdom from Tenali Rama</th></tr>
+                <tr>
+                    <td><p>“A clever mind turns problems into opportunities.”</p></td>
+                    <td>Tenali Rama and the Thieves</td>
+                    <td>This quote perfectly encapsulates Tenali Rama's approach. When faced with a house invasion, he doesn't panic. Instead, he uses his sharp intellect to trick the thieves into helping him protect his wealth while watering his garden. It's a prime example of transforming a threat into an advantage through ingenuity and quick thinking, showcasing wit's power.</td>
+                </tr>
+                <tr>
+                    <td><p>“Laughter is the best weapon against arrogance.”</p></td>
+                    <td>Tenali Rama and the Proud Poet</td>
+                    <td>When a poet filled with self-importance arrives, Tenali Rama uses humor and clever wordplay to expose his shallowness. By making the court laugh at the poet's inflated ego, Tenali Rama effectively deflates his pride without resorting to direct confrontation or harsh criticism. It demonstrates how wit can subtly humble the arrogant.</td>
+                </tr>
+                <tr>
+                    <td><p>“Sometimes, silence is the smartest answer.”</p></td>
+                    <td>Tenali Rama and the Wise Silence</td>
+                    <td>In a test posed by the king, Tenali Rama's seemingly simple act of remaining silent proves to be the most profound response. While others rush to provide elaborate answers, Tenali Rama understands the deeper context or the futility of a verbal reply. It teaches the value of discernment and knowing when thoughtful silence speaks louder than words.</td>
+                </tr>
+                <tr>
+                    <td><p>“Foolishness is often disguised as wisdom.”</p></td>
+                    <td>Tenali Rama and the Foolish Minister</td>
+                    <td>This quote critiques those who lack genuine understanding but masquerade as wise, often within positions of authority. Tenali Rama frequently exposes the ill-conceived plans or nonsensical pronouncements of foolish ministers, highlighting the danger of mistaking pomposity or ignorance for true wisdom. It urges critical evaluation of those offering counsel.</td>
+                </tr>
+                <tr>
+                    <td><p>“Cunning, when used rightly, is a gift.”</p></td>
+                    <td>Tenali Rama and the Thieves (General Theme)</td>
+                    <td>Tenali Rama's use of cunning is a recurring element, but it is consistently portrayed as a positive trait because it is employed for just purposes: to protect the innocent, expose corruption, or teach valuable lessons. This quote suggests that intelligence and resourcefulness, when guided by ethical intentions, are powerful and beneficial skills.</td>
+                </tr>
+                <tr>
+                    <td><p>“A good joke can teach a hard lesson.”</p></td>
+                    <td>Tenali Rama’s Festival Tale (General Approach)</td>
+                    <td>Tenali Rama has a unique ability to use humor and witty anecdotes to deliver criticism or point out uncomfortable truths, even to the king, in a way that is accepted and leads to reflection rather than offense. This emphasizes the pedagogical power of humor to make difficult lessons palatable and memorable.</td>
+                </tr>
+                <tr>
+                    <td><p>“Even the wisest make mistakes; learning is key.”</p></td>
+                    <td>Tenali Rama’s Lesson (General Theme)</td>
+                    <td>Despite his celebrated wisdom, Tenali Rama is not infallible and the stories sometimes show him in situations where he learns from an oversight or misjudgment. This quote underscores the continuous nature of learning and suggests that true wisdom involves humility and a willingness to acknowledge and grow from one's errors.</td>
+                </tr>
+                <tr>
+                    <td><p>“Bravery is not just strength, but quick thinking.”</p></td>
+                    <td>Tenali Rama and the Bandits</td>
+                    <td>When confronted by physical danger, Tenali Rama's courage is demonstrated less by physical prowess and more by his rapid intellectual response. He devises clever strategies and traps to outsmart his attackers, proving that a sharp mind and quick wit are essential components of true bravery in the face of peril.</td>
+                </tr>
+                <tr>
+                    <td><p>“Appearances can fool the eyes, but not the mind.”</p></td>
+                    <td>Tenali Rama and the Painted Elephant</td>
+                    <td>In this tale, a highly realistic painting deceives many, but Tenali Rama sees through the illusion by highlighting its fundamental limitations compared to reality. This quote serves as a reminder to rely on critical thinking and discernment rather than being swayed by superficial appearances, which can often be misleading.</td>
+                </tr>
+                <tr>
+                    <td><p>“Justice favors the clever, not the loud.”</p></td>
+                    <td>Tenali Rama and the False Accuser</td>
+                    <td>When faced with false accusations or unjust claims, Tenali Rama uses his sharp intellect and logical arguments to reveal the truth and ensure justice prevails. This quote suggests that in legal or ethical disputes, the power of clear, intelligent reasoning is ultimately more effective than aggression or baseless assertions.</td>
+                </tr>
+                <tr>
+                    <td><p>“A humble heart carries the heaviest crown.”</p></td>
+                    <td>Tenali Rama’s Counsel to the King</td>
+                    <td>Tenali Rama often subtly advises King Krishnadevaraya on the importance of humility in a ruler. This quote implies that true leadership strength and the weight of responsibility (the 'heaviest crown') are best borne by someone with a humble and grounded perspective, allowing for better connection with and understanding of their subjects.</td>
+                </tr>
+                 <tr>
+                    <td><p>“Problems are puzzles waiting to be solved.”</p></td>
+                    <td>Tenali Rama’s Clever Plan (General Approach)</td>
+                    <td>Tenali Rama consistently approaches challenges not as insurmountable obstacles but as intellectual puzzles that require creative solutions. This quote reflects a mindset that encourages analytical thinking and ingenuity, suggesting that difficulties are opportunities to apply one's wit and find innovative ways to overcome them.</td>
+                </tr>
+                <tr>
+                    <td><p>“Knowledge grows when shared.”</p></td>
+                    <td>Tenali Rama and the Students</td>
+                    <td>As a scholar and advisor, Tenali Rama understood the value of imparting his knowledge to others. This quote embodies the principle that teaching and sharing information not only benefits the recipients but also reinforces and deepens the understanding of the person who is sharing, creating a cycle of growth.</td>
+                </tr>
+                <tr>
+                    <td><p>“He who laughs last, laughs best.”</p></td>
+                    <td>Tenali Rama’s Trick (Common Proverb adapted)</td>
+                    <td>Often, Tenali Rama appears to be in a losing or embarrassing situation, leading others to mock him prematurely. However, his clever plans unfold over time, resulting in his ultimate triumph or vindication. This proverb, often demonstrated by his actions, emphasizes the value of patience, timing, and perseverance in achieving final success.</td>
+                </tr>
+                <tr>
+                    <td><p>“The truth is sharper than any sword.”</p></td>
+                    <td>Tenali Rama and the Honest Merchant</td>
+                    <td>In tales involving deception or disputes, Tenali Rama uses the power of plain truth to resolve the issue decisively. Unlike a sword which causes physical harm, truth cuts through lies and confusion with undeniable clarity and impact, bringing about a just resolution more effectively than force.</td>
+                </tr>
+                <tr>
+                    <td><p>“Quick wit is the best armor.”</p></td>
+                    <td>Tenali Rama and the Thieves (General Theme)</td>
+                    <td>Faced with threats, Tenali Rama's primary defense mechanism is his rapid and intelligent thinking. His ability to formulate clever plans on the spot protects him more reliably than any physical shield or weapon could. This quote elevates intellectual agility as the ultimate form of self-preservation.</td>
+                </tr>
+                <tr>
+                    <td><p>“Even fools can teach the wise a lesson.”</p></td>
+                    <td>Tenali Rama’s Encounter (General Theme)</td>
+                    <td>Sometimes, Tenali Rama gains unexpected insights or learns valuable lessons by observing the behaviors or mistakes of individuals who lack conventional wisdom. This quote promotes a humble and open-minded approach to learning, suggesting that wisdom can be gleaned from all sources, even seemingly foolish ones, through careful observation.</td>
+                </tr>
+                <tr>
+                    <td><p>“A king’s real strength is his advisor’s wisdom.”</p></td>
+                    <td>Tenali Rama and King Krishnadevaraya</td>
+                    <td>The prosperity and just governance of King Krishnadevaraya's reign are often attributed to the astute counsel provided by Tenali Rama. This quote underscores the vital role of intelligent, ethical, and insightful advisors in effective leadership, suggesting that a ruler's true power is amplified by the wisdom they choose to consult.</td>
+                </tr>
+                <tr>
+                    <td><p>“Pride blinds the proud.”</p></td>
+                    <td>Tenali Rama and the Boastful Man (General Theme)</td>
+                    <td>Characters who are consumed by arrogance in Tenali Rama's stories consistently make poor decisions or fall prey to his tricks because their pride prevents them from seeing clearly or acknowledging their limitations. This quote highlights how excessive self-importance clouds judgment and makes one vulnerable to downfall.</td>
+                </tr>
+                 <tr>
+                    <td><p>“Sometimes the smallest voice carries the loudest truth.”</p></td>
+                    <td>Tenali Rama and the Silent Witness (General Theme)</td>
+                    <td>In cases requiring judgment, the most crucial piece of evidence or insight might come from an unexpected source or someone who is usually quiet. This quote encourages paying attention to all voices, regardless of their prominence, as important and impactful truths can originate from the most unassuming individuals.</td>
+                </tr>
+                <tr>
+                    <td><p>“A clever answer is a key that unlocks problems.”</p></td>
+                    <td>Tenali Rama’s Wit (General Approach)</td>
+                    <td>Tenali Rama solves complex dilemmas and challenges by providing insightful, often unconventional, answers that reveal the solution or expose the underlying issue. This quote emphasizes the power of intellectual agility and sharp responses to resolve difficult situations effectively. Wit is the tool to unlock challenges.</td>
+                </tr>
+                <tr>
+                    <td><p>“Patience and wit together conquer.”</p></td>
+                    <td>Tenali Rama’s Test (General Approach)</td>
+                    <td>Many of Tenali Rama's successes involve a combination of strategic patience, waiting for the right moment or opportunity, and then applying his quick wit to achieve the desired outcome. This quote suggests that the combination of thoughtful endurance and intelligent action is a potent formula for overcoming obstacles.</td>
+                </tr>
+                <tr>
+                    <td><p>“Laugh at yourself before others do.”</p></td>
+                    <td>Tenali Rama’s Humble Joke (General Character)</td>
+                    <td>Tenali Rama possesses a degree of self-awareness and is not afraid to make himself the subject of humor. This quote suggests that having the humility to laugh at one's own flaws or mistakes disarms potential critics and demonstrates a healthy perspective on oneself. Self-deprecating humor is a sign of confidence.</td>
+                </tr>
+
+                <tr class="section-header"><th colspan="3">Wisdom from Birbal</th></tr>
+                <tr>
+                    <td><p>“A wise answer needs no sword.”</p></td>
+                    <td>Birbal Quells the Rebellion</td>
+                    <td>When a tense situation arises that could lead to conflict, Birbal uses his diplomatic skills and clever reasoning to resolve the dispute peacefully. His words and arguments prove more effective in calming the situation and achieving a favorable outcome than any military intervention would have been. Diplomacy and wit are powerful tools.</td>
+                </tr>
+                <tr>
+                    <td><p>“Truth, like the sun, cannot be hidden long.”</p></td>
+                    <td>The Pot of Wit (General Theme)</td>
+                    <td>Birbal excels at uncovering hidden truths and exposing lies through his clever methods of investigation and reasoning. This quote, a recurring theme in his justice tales, asserts that falsehoods are ultimately unsustainable and that reality, like the sun, will inevitably reveal itself despite attempts to conceal it.</td>
+                </tr>
+                <tr>
+                    <td><p>“Even silence can speak volumes.”</p></td>
+                    <td>The Silent Reply</td>
+                    <td>Faced with a tricky question or a situation where a verbal response might be detrimental, Birbal's intentional silence or a subtle non-verbal cue communicates a powerful message. This highlights that effective communication is not solely reliant on words and that sometimes, a well-judged silence can convey deeper meaning or wisdom.</td>
+                </tr>
+                <tr>
+                    <td><p>“Justice is blind, but wisdom must guide it.”</p></td>
+                    <td>The Farmer’s Justice (General Theme)</td>
+                    <td>Birbal's judgments are impartial and fair, embodying the 'blind' aspect of justice, but they are also characterized by his deep understanding of human nature and the nuances of each case, ensuring the application of law is guided by wisdom and leads to a just outcome. Justice requires both impartiality and insight.</td>
+                </tr>
+                <tr>
+                    <td><p>“Greed makes even the full feel empty.”</p></td>
+                    <td>The Greedy Barber (General Theme)</td>
+                    <td>Characters driven by greed in Birbal's stories are never satisfied, no matter how much wealth or possessions they acquire. Their relentless desire for more prevents them from appreciating what they have, illustrating how greed creates a perpetual sense of lack and inner emptiness. Greed is a void that cannot be filled.</td>
+                </tr>
+                 <tr>
+                    <td><p>“One who knows how to laugh at himself is truly wise.”</p></td>
+                    <td>Birbal’s Khichdi (General Character)</td>
+                    <td>Birbal possesses a strong sense of humor and is capable of self-deprecation. This quote suggests that the ability to not take oneself too seriously and to find humor in one's own flaws or mistakes is a sign of humility, self-awareness, and inner confidence, which are hallmarks of true wisdom.</td>
+                </tr>
+                <tr>
+                    <td><p>“Appearances deceive, but the mind sees true.”</p></td>
+                    <td>The Painting Test (General Theme)</td>
+                    <td>Birbal often sees through superficial appearances to understand the underlying reality of a situation or person. This quote advises using one's intellect and powers of observation to perceive beyond how things initially seem, as outward appearances can often be misleading or intentionally deceptive. Look beneath the surface.</td>
+                </tr>
+                <tr>
+                    <td><p>“Pride makes a fool of the clever.”</p></td>
+                    <td>The Boastful Scholar (General Theme)</td>
+                    <td>Individuals who are intelligent but arrogant often become victims of their own pride, leading them to make foolish mistakes or fall prey to manipulation. This quote highlights how excessive self-importance can blind even clever people to their own vulnerabilities and flaws. Arrogance is the enemy of good judgment.</td>
+                </tr>
+                <tr>
+                    <td><p>“A quick wit is sharper than a sword.”</p></td>
+                    <td>Birbal’s Sharpness (General Theme)</td>
+                    <td>Birbal's primary tool for solving problems, escaping danger, and winning arguments is his rapid and incisive intellect. This quote powerfully emphasizes that mental agility and cleverness are more effective and potent than physical force or aggression. The mind is the ultimate weapon.</td>
+                </tr>
+                <tr>
+                    <td><p>“It is better to lose a jewel than a friend.”</p></td>
+                    <td>The Stolen Ring (General Theme)</td>
+                    <td>In resolving disputes or offering counsel on values, Birbal consistently prioritizes the importance of human relationships, particularly true friendship, over material wealth or possessions. This quote underscores the moral lesson that genuine connections with others are infinitely more valuable and enduring than any material riches.</td>
+                </tr>
+                 <tr>
+                    <td><p>“Justice delayed is not always justice denied.”</p>
+                    <td>The Delayed Judgment (General Theme)</td>
+                    <td>Some complex cases require time, patience, and careful investigation for the truth to be revealed and justice to be served. This quote offers a hopeful perspective that even if the path to justice is long and requires endurance, it can still be achieved through perseverance and thoroughness, rather than being given up on due to delay.</td>
+                </tr>
+                <tr>
+                    <td><p>“Only the honest can spot a liar.”</p></td>
+                    <td>The Foolproof Test (General Theme)</td>
+                    <td>Birbal, known for his integrity, possesses a keen ability to detect dishonesty in others. This quote suggests that having a foundation of honesty and truthfulness oneself provides the necessary clarity and perspective to recognize and understand the nature of deceit in others. Integrity sharpens discernment.</td>
+                </tr>
+                <tr>
+                    <td><p>“Respect cannot be commanded, only earned.”</p></td>
+                    <td>The Foolish Minister (General Theme)</td>
+                    <td>This quote, illustrated by the lack of genuine respect given to incompetent or unjust figures of authority, teaches that true respect is a voluntary response earned through virtuous character, wisdom, fairness, and ethical actions, rather than being automatically conferred by a title or position of power.</td>
+                </tr>
+                <tr>
+                    <td><p>“Wisdom is not in knowing all answers, but asking the right questions.”</p></td>
+                    <td>The Puzzled King (General Approach)</td>
+                    <td>Birbal often guides Emperor Akbar towards solutions by prompting him with insightful questions that illuminate the core of the problem. This quote emphasizes that true wisdom involves critical inquiry and the ability to identify the essential questions that need to be asked to understand a situation and find solutions.</td>
+                </tr>
+                <tr>
+                    <td><p>“A tree laden with fruit bows low.”</p></td>
+                    <td>The Modest Scholar (General Proverb)</td>
+                    <td>This beautiful metaphor compares the humble posture of a fruit-laden tree to the modesty of truly wise and knowledgeable individuals. It suggests that those who possess the greatest wisdom are often the most unassuming, weighed down by the richness of their knowledge rather than being outwardly arrogant.</td>
+                </tr>
+                <tr>
+                    <td><p>“Those who speak least often speak best.”</p></td>
+                    <td>The Talkative Courtier (General Theme)</td>
+                    <td>In contrast to verbose but empty speech, Birbal's most impactful pronouncements are often concise and profound. This quote highlights the value of thoughtful and deliberate communication, suggesting that quality and meaning in speech are more important than quantity or volume. Brevity can convey great wisdom.</td>
+                </tr>
+                <tr>
+                    <td><p>“Generosity that seeks applause is mere vanity.”</p></td>
+                    <td>The Charity Debate (General Theme)</td>
+                    <td>Birbal might expose those whose charitable acts are motivated by a desire for public praise rather than genuine compassion. This quote distinguishes true altruism, which is performed selflessly and often discreetly, from superficial acts intended solely to gain recognition and enhance one's reputation.</td>
+                </tr>
+                 <tr>
+                    <td><p>“Power is best tested by restraint.”</p></td>
+                    <td>The King’s Wish (General Counsel)</td>
+                    <td>Birbal often subtlely advises the king on the responsible exercise of his authority. This quote suggests that a ruler's true strength and capacity for wise governance are best demonstrated not by wielding absolute power without limits, but by the conscious decision to show restraint, mercy, and self-control.</td>
+                </tr>
+                <tr>
+                    <td><p>“Justice without empathy is tyranny.”</p></td>
+                    <td>The King’s Judgment (General Theme)</td>
+                    <td>Birbal's approach to justice consistently integrates compassion and understanding of human circumstances with the application of law. This quote emphasizes that a rigid, unfeeling adherence to rules without considering the human element and showing empathy can lead to oppressive and unjust outcomes. Fairness requires compassion.</td>
+                </tr>
+                <tr>
+                    <td><p>“Even a king must sometimes hear hard truths.”</p></td>
+                    <td>Birbal’s Courage (Speaking truth to power)</td>
+                    <td>Birbal is renowned for his bravery in speaking honestly to Emperor Akbar, even when the truth is challenging or critical of the king. This quote underscores the vital importance of honest feedback for leaders and the need for rulers to be receptive to difficult truths for effective leadership and personal growth.</td>
+                </tr>
+                <tr>
+                    <td><p>“Simplicity reveals honesty.”</p></td>
+                    <td>The Disguised King (General Theme)</td>
+                    <td>Characters who are straightforward and live or behave simply are often portrayed as more sincere and trustworthy than those who are elaborate or deceptive. This quote suggests that genuine character and truthfulness are frequently reflected in a simple and unpretentious manner of being and communication.</td>
+                </tr>
+                 <tr>
+                    <td><p>“It is the quiet pot that holds the sweetest water.”</p>
+                    <td>The Pot of Silence (General Proverb)</td>
+                    <td>This metaphor suggests that individuals who are not outwardly boisterous or attention-seeking may possess significant inner depth, wisdom, or valuable qualities. It encourages looking beyond superficial demeanor and appreciating the quiet substance found within unassuming people. Deep rivers flow silently.</td>
+                </tr>
+                <tr>
+                    <td><p>“Even a fool teaches, if the wise are willing to learn.”</p></td>
+                    <td>The Fool's Wisdom (General Theme)</td>
+                    <td>Birbal's wisdom is gained through broad observation, including learning from the mistakes and behaviors of those who lack wisdom. This quote highlights that lessons can be found in all aspects of life, even from negative examples, if one is humble and discerning enough to perceive them. Learning comes from all sources.</td>
+                </tr>
+                <tr>
+                    <td><p>“To reward injustice is to encourage it.”</p></td>
+                    <td>The Fake Accuser (General Theme)</td>
+                    <td>When unjust actions or individuals are rewarded or not held accountable, it signals that such behavior is acceptable or even beneficial, thereby promoting its continuation. This quote emphasizes the critical necessity of ensuring that injustice faces consequences to discourage wrongdoing and maintain a just society.</td>
+                </tr>
+                <tr>
+                    <td><p>“Wisdom is not inherited, but practiced.”</p></td>
+                    <td>The Clever Son (General Theme)</td>
+                    <td>While lineage or background might provide opportunities, true wisdom is not automatically passed down but is cultivated through an individual's own experiences, choices, continuous learning, and consistent application of knowledge in their actions. Wisdom is a cultivated virtue, not an inheritance.</td>
+                </tr>
+
+                <tr class="section-header"><th colspan="3">Wisdom from Vikram and the Betal</th></tr>
+                <tr>
+                    <td><p>“Wisdom is knowing what to do; virtue is doing it.”</p></td>
+                    <td>The King and the Hermit (Moral of a tale)</td>
+                    <td>This quote draws a crucial distinction between theoretical knowledge and ethical action. It posits that true wisdom is not merely the accumulation of knowledge or understanding, but the active application of that knowledge to make moral choices and perform virtuous deeds. Wisdom is realized through virtuous conduct.</td>
+                </tr>
+                <tr>
+                    <td><p>“Justice must balance duty and compassion.”</p></td>
+                    <td>The Girl and the Thieves (Resolution of a dilemma)</td>
+                    <td>The Betal's tales often challenge King Vikramaditya to resolve complex moral quandaries that require balancing strict adherence to law or duty with the need for empathy and understanding of individual circumstances. This quote highlights the idea that true justice is not just rigid rule-following but a nuanced application guided by compassion.</td>
+                </tr>
+                <tr>
+                    <td><p>“Attachment clouds judgment.”</p></td>
+                    <td>The Devoted Wife (Moral of a tale)</td>
+                    <td>Stories within this collection frequently illustrate how intense emotional attachments, such as deep love or possessiveness, can compromise rational thinking and lead characters to make unwise or self-destructive decisions. This quote serves as a warning that strong emotions can distort one's perception and ability to judge situations clearly.</td>
+                </tr>
+                <tr>
+                    <td><p>“Even kings must bow before truth.”</p></td>
+                    <td>The Truthful King (Moral of a tale)</td>
+                    <td>Despite possessing immense power and authority, rulers in these tales are ultimately subject to the undeniable reality of truth and a higher moral order. This quote underscores the principle that truth holds a supreme authority that transcends worldly power and that even monarchs are accountable to it. Truth is the ultimate sovereign.</td>
+                </tr>
+                <tr>
+                    <td><p>“One must speak, even if silence is safe, when justice is at stake.”</p></td>
+                    <td>The Silent Brahmin (Moral of a tale)</td>
+                    <td>This quote presents a strong moral imperative to speak out against injustice, even when doing so involves personal risk or goes against self-preservation. It argues that remaining silent in the face of wrongdoing is not neutrality but a form of complicity that allows injustice to persist. Courage is required to speak truth.</td>
+                </tr>
+                 <tr>
+                    <td><p>“A promise is a chain; honor is the key.”</p></td>
+                    <td>The King Who Kept His Word (Moral of a tale)</td>
+                    <td>King Vikramaditya's unwavering commitment to fulfilling his promise to the ascetic, despite the formidable challenges, is a central theme. This quote emphasizes the binding nature of vows and suggests that maintaining one's honor and integrity through keeping commitments is essential to one's moral character and freedom.</td>
+                </tr>
+                <tr>
+                    <td><p>“Wisdom lies in recognizing the greater good.”</p></td>
+                    <td>The Three Sensitive Brothers (Resolution of a dilemma)</td>
+                    <td>Dilemmas in the Betal's tales often require choosing between conflicting claims or outcomes. The resolution that demonstrates wisdom is typically the one that prioritizes the well-being or benefit of the broader community or aligns with a higher moral principle, rather than serving narrow individual interests.</td>
+                </tr>
+                <tr>
+                    <td><p>“The clever are not always wise.”</p></td>
+                    <td>The Scholar and the Dead Lion (Moral of a tale)</td>
+                    <td>A story illustrating learned individuals who lack practical judgment highlights this point. This quote distinguishes between academic cleverness or specialized knowledge and true wisdom, which incorporates common sense, foresight, and the ability to understand the real-world implications and consequences of one's actions.</td>
+                </tr>
+                <tr>
+                    <td><p>“Loyalty is tested in hardship, not prosperity.”</p></td>
+                    <td>The Faithful Servant (Moral of a tale)</td>
+                    <td>Stories featuring devoted servants or companions demonstrate that true loyalty and sincerity are revealed not during times of ease and abundance, but when facing difficulties, dangers, or adversity. This quote underscores that genuine faithfulness is proven through unwavering support and commitment during challenging circumstances.</td>
+                </tr>
+                <tr>
+                    <td><p>“Righteousness shines brighter than wealth.”</p></td>
+                    <td>The Just Merchant (Moral of a tale)</td>
+                    <td>Characters who prioritize ethical conduct, honesty, and moral rectitude are portrayed as possessing a more valuable and enduring form of richness than those who pursue material wealth through dishonest means. This quote suggests that moral integrity has an intrinsic brilliance and worth that surpasses material possessions.</td>
+                </tr>
+                 <tr>
+                    <td><p>“Greed turns even good fortune into ruin.”</p></td>
+                    <td>The Greedy King (Moral of a tale)</td>
+                    <td>A ruler or individual blessed with prosperity succumbs to an insatiable desire for more, leading to destructive actions that result in the loss of everything. This quote illustrates how unchecked greed blinds individuals to the value of what they have and drives them towards self-destruction, turning blessings into ruin.</td>
+                </tr>
+                <tr>
+                    <td><p>“A question left unanswered is a truth unclaimed.”</p></td>
+                    <td>The Riddle of the Two Brothers (General Approach)</td>
+                    <td>The structure of the frame story, where Vikram must answer the Betal's riddles, emphasizes the importance of seeking knowledge and making definitive judgments. This quote suggests that unresolved questions represent potential truths or understandings that remain undiscovered until actively pursued and answered. Inquiry is the path to understanding.</td>
+                </tr>
+                <tr>
+                    <td><p>“Sacrifice is the soul of love.”</p></td>
+                    <td>The Queen Who Gave Her Life (Moral of a tale)</td>
+                    <td>Stories featuring selfless acts of sacrifice for the well-being of a loved one highlight this profound theme. This quote suggests that the truest and deepest expression of love is demonstrated through a willingness to prioritize the needs and welfare of the beloved, even requiring significant personal cost. Love is defined by selfless action.</td>
+                </tr>
+                <tr>
+                    <td><p>“Fate tests all, but the wise stand firm.”</p></td>
+                    <td>The Saint and the King (General Theme)</td>
+                    <td>Characters, both wise and foolish, inevitably face trials and challenges dictated by fate or external circumstances. This quote suggests that while one cannot always control external events, a wise person confronts adversity with inner resilience, steadfast principles, and fortitude, demonstrating strength of character in the face of destiny's trials.</td>
+                </tr>
+                <tr>
+                    <td><p>“To break a vow is to break oneself.”</p></td>
+                    <td>The King and the Ascetic (Frame Narrative Theme)</td>
+                    <td>King Vikramaditya's commitment to his difficult task is driven by honor and the sacredness of his promise. This quote underscores the deep connection between keeping one's word and maintaining personal integrity and self-respect. Breaking a vow is not merely a failure to another but a fundamental betrayal of one's own character.</td>
+                </tr>
+                <tr>
+                    <td><p>“Even demons respect a man of virtue.”</p></td>
+                    <td>The Pious Prince (Moral of a tale)</td>
+                    <td>In tales where characters interact with supernatural or malevolent beings, those who exhibit genuine virtue, moral purity, and righteousness are sometimes shown to command respect or even hold sway over these forces. This quote suggests that inherent moral goodness possesses a power that transcends conventional boundaries.</td>
+                </tr>
+                <tr>
+                    <td><p>“Courage is not the absence of fear, but action despite it.”</p></td>
+                    <td>Vikram Rescues the Boy (General Theme)</td>
+                    <td>King Vikramaditya undertakes perilous tasks for the greater good despite the inherent dangers and his own awareness of the risks. This quote redefines courage, emphasizing that it is not the lack of fear, but the determination and resolve to act in accordance with one's duty or principles despite experiencing fear.</td>
+                </tr>
+                <tr>
+                    <td><p>“A wise man speaks only when silence would betray wisdom.”</p></td>
+                    <td>The Clever Minister (General Proverb adapted)</td>
+                    <td>Expanding on the value of thoughtful speech, this quote suggests that a truly wise person knows when silence is golden, but also recognizes critical moments when speaking is essential to offer counsel, share knowledge, or uphold truth. Failing to speak in such moments would be a disservice to wisdom itself.</td>
+                </tr>
+                 <tr>
+                    <td><p>“Power without restraint leads to destruction.”</p></td>
+                    <td>The King and the Yaksha (Moral of a tale)</td>
+                    <td>Stories about rulers or individuals granted immense power who use it arbitrarily and without self-control illustrate this point. Their unchecked authority results in tyranny, chaos, and ultimately their own downfall. This quote highlights the critical importance of restraint, responsibility, and ethical considerations in wielding power.</td>
+                </tr>
+                <tr>
+                    <td><p>“In seeking revenge, dig two graves.”</p></td>
+                    <td>The Avenging Sister (Moral of a tale)</td>
+                    <td>A character consumed by the pursuit of vengeance often becomes so focused on harming their target that they overlook the negative consequences to themselves, leading to their own ruin or demise alongside that of their enemy. This proverb serves as a stark warning that revenge is a destructive path that consumes both parties involved.</td>
+                </tr>
+                <tr>
+                    <td><p>“Understanding the ‘why’ is the heart of every riddle.”</p></td>
+                    <td>The Betal’s Last Question (General Approach)</td>
+                    <td>The Betal's complex riddles cannot be solved by simply understanding the events; they require delving into the motivations, circumstances, and underlying moral implications ("the 'why'"). This quote emphasizes that true comprehension and wisdom come from seeking the reasons and deeper context behind situations, not just superficial facts.</td>
+                </tr>
+                <tr>
+                    <td><p>“Those who question find truth; those who fear it, find lies.”</p></td>
+                    <td>The Truth Seeker (General Theme)</td>
+                    <td>This quote encourages intellectual curiosity and the courage to seek knowledge. It suggests that actively posing questions and challenging assumptions leads one towards genuine understanding and truth, while avoiding difficult inquiries or fearing what one might discover traps a person in ignorance and falsehoods. Inquiry is the engine of discovery.</td>
+                </tr>
+                <tr>
+                    <td><p>“A heart without empathy is colder than death.”</p></td>
+                    <td>The Cruel Prince (Moral of a tale)</td>
+                    <td>Stories featuring characters who are utterly devoid of compassion illustrate the severity of this lack. This quote uses a powerful metaphor to convey that a life lacking empathy is fundamentally cold, isolated, and devoid of genuine human connection, representing a profound spiritual emptiness akin to death itself. Lack of empathy is a chilling state.</td>
+                </tr>
+                <tr>
+                    <td><p>“Betal speaks in riddles, but truth lies beneath.”</p></td>
+                    <td>All Stories (Frame Narrative)</td>
+                    <td>This observation reflects the nature of the Betal's challenges to Vikram and, metaphorically, the nature of wisdom found in many layered tales. Profound truths are often presented in challenging or disguised forms (like riddles) that require careful thought, interpretation, and deeper insight to uncover their true meaning. Wisdom is not always easily accessible.</td>
+                </tr>
+                <tr>
+                    <td><p>“One’s duty is above reward.”</p></td>
+                    <td>Vikram’s Vow to the Sage (Frame Narrative Theme)</td>
+                    <td>King Vikramaditya undertakes the difficult and dangerous task set by the ascetic out of a strong sense of dharma (duty) and honor, not seeking personal gain. This quote emphasizes the principle that fulfilling one's obligations and acting according to moral principle is the highest form of conduct, more valuable than any external reward.</td>
+                </tr>
+
+                 <tr class="section-header"><th colspan="3">Wisdom from Fables (Panchatantra / Aesop-like)</th></tr>
+                 <tr>
+                    <td><p>“Slow and steady wins the race.”</p></td>
+                    <td>The Tortoise and the Hare</td>
+                    <td>This classic fable imparts the moral that consistent effort and unwavering determination are more likely to lead to success than natural talent or speed combined with overconfidence and complacency. Perseverance, even at a slow pace, ultimately outlasts sporadic bursts of effort or arrogant idleness.</td>
+                </tr>
+                <tr>
+                    <td><p>“Beware lest you lose the substance by grasping at the shadow.”</p></td>
+                    <td>The Dog and the Shadow</td>
+                    <td>A dog carrying a bone sees its reflection in water and, mistaking it for another dog with a larger bone, drops its own to get the reflection, thus losing both. This fable serves as a potent warning against greed and the foolishness of sacrificing tangible possessions for the illusion of gaining something greater.</td>
+                </tr>
+                <tr>
+                    <td><p>“United we stand, divided we fall.”</p></td>
+                    <td>The Four Oxen and the Lion</td>
+                    <td>As long as the four oxen remain together, forming a united front, the lion cannot attack them. Only when they quarrel and go their separate ways does the lion succeed in defeating them individually. This fable powerfully illustrates the strength found in unity, cooperation, and solidarity against external threats.</td>
+                </tr>
+                <tr>
+                    <td><p>“No act of kindness, no matter how small, is ever wasted.”</p></td>
+                    <td>The Lion and the Mouse</td>
+                    <td>A mighty lion magnanimously spares the life of a tiny mouse, who later, when the lion is trapped in a net, uses its small teeth to chew through the ropes and free the lion. This fable beautifully demonstrates that acts of compassion, regardless of how insignificant they may seem at the time, can have profound and unexpected positive consequences.</td>
+                </tr>
+                <tr>
+                    <td><p>“Gratitude is the sign of noble souls.”</p></td>
+                    <td>The Lion and the Mouse</td>
+                    <td>The mouse, despite its small stature, remembers the significant kindness shown by the lion and actively seeks an opportunity to reciprocate. This highlights the importance of acknowledging and appreciating the help or favors received from others, portraying gratitude as a fundamental characteristic of good character and inner nobility.</td>
+                </tr>
+                 <tr>
+                    <td><p>“Necessity is the mother of invention.”</p></td>
+                    <td>The Crow and the Pitcher</td>
+                    <td>A thirsty crow is unable to reach the water at the bottom of a tall pitcher. Driven by the need to drink, the crow discovers the solution of dropping pebbles into the pitcher to raise the water level. This fable illustrates how challenging circumstances and the urgent need to solve a problem can stimulate creativity and ingenuity.</td>
+                </tr>
+                <tr>
+                    <td><p>“Don't count your chickens before they’re hatched.”</p></td>
+                    <td>The Milkmaid and Her Pail</td>
+                    <td>A milkmaid is so absorbed in daydreaming about what she will do with the money from the milk she is carrying that she trips and spills it all, losing everything. This fable serves as a classic warning against making plans or assuming success based on future events or potential gains that are not yet guaranteed.</td>
+                </tr>
+                <tr>
+                    <td><p>“Familiarity breeds contempt.”</p></td>
+                    <td>The Fox and the Lion</td>
+                    <td>Initially terrified of the lion, a fox eventually becomes accustomed to his presence through repeated encounters and loses his fear, perhaps even developing disdain. This proverb suggests that prolonged exposure or close acquaintance with someone or something can sometimes diminish respect, awe, or fear.</td>
+                </tr>
+                <tr>
+                    <td><p>“A liar will not be believed, even when he speaks the truth.”</p></td>
+                    <td>The Boy Who Cried Wolf</td>
+                    <td>A shepherd boy repeatedly deceives villagers by falsely crying out that a wolf is attacking the sheep. When a real wolf finally appears, his genuine calls for help are ignored because his history of dishonesty has eroded all trust. This fable teaches the critical importance of truthfulness and the irreversible damage that lying inflicts on one's credibility.</td>
+                </tr>
+                <tr>
+                    <td><p>“Don't let your pride blind you.”</p></td>
+                    <td>The Fox and the Crow</td>
+                    <td>A fox flatters a crow holding cheese, praising her singing voice. The crow, blinded by pride, opens her mouth to sing, dropping the cheese which the fox then eats. This fable warns that vanity and susceptibility to flattery can make one foolish and easily manipulated, leading to loss or embarrassment.</td>
+                </tr>
+                 <tr>
+                    <td><p>“He who tries to please everyone pleases no one.”</p></td>
+                    <td>The Man, the Boy, and the Donkey</td>
+                    <td>A man and his son try to satisfy the contradictory opinions of everyone they meet while traveling with their donkey. By constantly changing their actions to please passersby, they end up looking ridiculous and fail to satisfy anyone. This fable advises that attempting to appease everyone is futile and impractical.</td>
+                </tr>
+                <tr>
+                    <td><p>“Enemies’ gifts are never to be trusted.”</p></td>
+                    <td>The Trojan Horse (Adopted Fable/Myth)</td>
+                    <td>Drawing from the famous myth, this proverb warns against accepting favors or offerings from those who are adversaries. Such 'gifts' are likely Trojan horses, concealing hidden dangers or malicious intentions intended to cause harm. Be suspicious of kindness from a foe.</td>
+                </tr>
+                <tr>
+                    <td><p>“You are judged by the company you keep.”</p></td>
+                    <td>The Ass and His Purchaser</td>
+                    <td>When considering buying an ass, a man decides to observe its companions first, believing that an animal's nature is reflected in its associates. This proverb suggests that a person's character, values, and reputation are often inferred and judged based on the kind of friends and associates they choose to keep.</td>
+                </tr>
+                <tr>
+                    <td><p>“Look before you leap.”</p></td>
+                    <td>The Fox and the Goat</td>
+                    <td>A fox tricks a goat into jumping into a deep well. While the fox then uses the goat to climb out, leaving the goat trapped, the goat's error was jumping without considering how to get out. This fable teaches the vital importance of carefully evaluating all potential consequences and having a plan before taking action, especially risky ones.</td>
+                </tr>
+                <tr>
+                    <td><p>“Even a fool is wise after the event.”</p></td>
+                    <td>The Fisherman and the Little Fish</td>
+                    <td>A fisherman regrets throwing back a small fish in the hope of catching a larger one, only to catch nothing. This proverb highlights that understanding the correct or best course of action is often only clear after the situation has concluded and the consequences are known. Hindsight provides easy wisdom.</td>
+                </tr>
+                 <tr>
+                    <td><p>“Don’t despise the weak; they may surprise you.”</p></td>
+                    <td>The Lion and the Mouse</td>
+                    <td>Despite his vast superiority in size and strength, the mighty lion is eventually rescued from a trap by the seemingly insignificant mouse. This fable teaches against underestimating individuals based on their perceived weakness, as even the smallest beings can possess unexpected capabilities, cleverness, or the ability to make a significant impact.</td>
+                </tr>
+                <tr>
+                    <td><p>“One false step brings everlasting regret.”</p></td>
+                    <td>The Fox and the Grapes (Moral inferred)</td>
+                    <td>The fox's inability to reach the grapes leads to his bitter declaration that they were sour. While open to interpretation, this could imply that a single initial failure ("one false step") or the subsequent act of self-deception (claiming they were sour) leads to a lasting feeling of disappointment or regret. It emphasizes the weight of actions and rationalizations.</td>
+                </tr>
+                 <tr>
+                    <td><p>“Honesty is the best policy.”</p></td>
+                    <td>Mercury and the Woodcutter</td>
+                    <td>When a poor woodcutter loses his axe, the god Mercury tests his integrity by offering him axes of gold and silver before his own simple one. The woodcutter's honesty is rewarded. This fable directly teaches that maintaining truthfulness and integrity, even in the face of temptation, is the most virtuous and ultimately beneficial course of action.</td>
+                </tr>
+                <tr>
+                    <td><p>“Misfortune tests the sincerity of friends.”</p></td>
+                    <td>The Bear and the Travelers</td>
+                    <td>Two friends are attacked by a bear. One abandons the other by climbing a tree, while the other saves himself by playing dead. This fable illustrates that true friendship and loyalty are most clearly revealed not during times of ease and happiness, but when facing shared adversity and danger. Hardship exposes true character.</td>
+                </tr>
+                <tr>
+                    <td><p>“Self-help is the best help.”</p></td>
+                    <td>Hercules and the Wagoner</td>
+                    <td>A wagoner whose cart is stuck prays to Hercules for help, but the god tells him he must first make his own effort by putting his shoulder to the wheel. This fable teaches that one should first utilize their own abilities, resources, and efforts to solve a problem before expecting external or divine intervention. Take initiative.</td>
+                </tr>
+                <tr>
+                    <td><p>“Don’t meddle in things you don’t understand.”</p></td>
+                    <td>The Ass and the Lapdog</td>
+                    <td>An ass sees a lapdog receiving affection for jumping on its master's lap and attempts to do the same, resulting in confusion and punishment because it doesn't understand the appropriate context or nature of the action. This fable warns against foolishly imitating others, especially in situations or roles one doesn't comprehend, as it leads to negative outcomes.</td>
+                </tr>
+                <tr>
+                    <td><p>“We often despise what we can’t have.”</p>
+                    <td>The Fox and the Grapes</td>
+                    <td>Unable to reach the grapes despite his efforts, the fox declares them sour and undesirable. This fable is the source of the phrase "sour grapes" and illustrates the psychological defense mechanism of devaluing something simply because it is unattainable, reducing feelings of disappointment or inadequacy.</td>
+                </tr>
+                <tr>
+                    <td><p>“The smaller may defeat the greater with wit.”</p></td>
+                    <td>The Frogs Who Desired a King (General Theme)</td>
+                    <td>While not a direct quote from the fable of the frogs and their kings, the underlying theme is present in many fables where a smaller, weaker creature or individual successfully overcomes a larger, stronger adversary through intelligence, cunning, and strategic thinking rather than physical force. Brains over brawn.</td>
+                </tr>
+                 <tr>
+                    <td><p>“Kindness begets kindness.”</p></td>
+                    <td>The Lion and the Mouse</td>
+                    <td>The initial act of compassion shown by the lion towards the mouse is reciprocated later by the mouse's act of freeing the lion. This fable reinforces the positive cyclical nature of kindness, demonstrating how benevolent actions inspire reciprocal goodwill and create a network of mutual support and assistance.</td>
+                </tr>
+                <tr>
+                    <td><p>“Revenge harms the revenger more.”</p></td>
+                    <td>The Farmer and the Snake (Moral inferred)</td>
+                    <td>A farmer is harmed by a snake he saved and seeks vengeance, only to be harmed again. This fable, or similar tales, illustrates that pursuing revenge is often a destructive path that not only harms the intended target but also causes significant and lasting suffering, sometimes even ruin, to the one seeking retribution.</td>
+                </tr>
+
+                 <tr class="section-header"><th colspan="3">More Wisdom from Panchatantra</th></tr>
+                 <tr>
+                    <td><p>“Knowledge is the true organ of sight, not the eyes.”</p></td>
+                    <td>The Brahmin and the Cobra</td>
+                    <td>This quote, found in the philosophical interludes of the Panchatantra, elevates intellectual and spiritual understanding above mere physical perception. It argues that true vision and the ability to comprehend the world and its complexities come from accumulated knowledge, wisdom, and insight gained through reflection and learning, not just what is seen with the eyes.</td>
+                </tr>
+                <tr>
+                    <td><p>“He who trusts everyone without discrimination invites his own ruin.”</p></td>
+                    <td>The Monkey and the Crocodile (Moral of the frame story)</td>
+                    <td>The monkey's near-fatal encounter with the crocodile is a direct result of his naive and trusting nature. This quote is a central warning from the Panchatantra, emphasizing the critical importance of discernment and caution when choosing companions and placing trust, particularly in those whose motives or character are questionable.</td>
+                </tr>
+                <tr>
+                    <td><p>“A wise enemy is better than a foolish friend.”</p></td>
+                    <td>The Foolish Friend (Moral of a tale)</td>
+                    <td>This counter-intuitive proverb suggests that while an enemy's intentions are harmful, their actions may be predictable or even inadvertently beneficial due to their wisdom. In contrast, a foolish friend, despite good intentions, can cause significant harm or trouble due to their lack of judgment or competence. Be wary of well-meaning incompetence.</td>
+                </tr>
+                <tr>
+                    <td><p>“Even the smallest being can defeat the mightiest, if clever.”</p></td>
+                    <td>The Elephant and the Mice (Moral of a tale)</td>
+                    <td>This fable provides a powerful example of how intelligence, strategic planning, and collective action can overcome sheer physical power. The tiny mice, through cleverness and unity, are able to defeat the much larger elephants, demonstrating that size and strength are not the sole determinants of success in conflict.</td>
+                </tr>
+                <tr>
+                    <td><p>“When danger is near, forget pride.”</p></td>
+                    <td>The Lion and the Rabbit (Moral of a tale)</td>
+                    <td>A clever rabbit outsmarts a proud, tyrannical lion by using the lion's own arrogance against him, leading the lion to his demise. This quote, embodied by the rabbit's pragmatic approach, advises that in the face of immediate danger, abandoning pride and prioritizing survival through cunning and quick thinking is the wisest course of action.</td>
+                </tr>
+                 <tr>
+                    <td><p>“Quick thinking can turn fate.”</p></td>
+                    <td>The Monkey and the Crocodile (Monkey's escape)</td>
+                    <td>When the monkey realizes the crocodile's treachery and his impending doom, his ability to rapidly invent a plausible lie saves him. This episode illustrates how intellectual agility and resourcefulness, employed swiftly in a moment of crisis, can alter a seemingly predetermined negative outcome and allow one to escape danger.</td>
+                </tr>
+                <tr>
+                    <td><p>“Words can heal or destroy—choose them well.”</p></td>
+                    <td>The Blue Jackal (Moral implied)</td>
+                    <td>The jackal gains power and deceives others through carefully crafted lies, but his deceitful words ultimately lead to his downfall when the truth is revealed. While not a direct quote, the narrative demonstrates the immense persuasive and manipulative power of speech, highlighting the ethical responsibility in choosing words.</td>
+                </tr>
+                <tr>
+                    <td><p>“Unity is strength.”</p></td>
+                    <td>The Doves and the Hunter (Moral of a tale)</td>
+                    <td>A flock of doves trapped in a hunter's net are able to escape only by working together to lift the net and fly away, a feat impossible for any single dove. This fable is a clear and memorable illustration of the power of cooperation, collective action, and solidarity in overcoming obstacles and achieving safety.</td>
+                </tr>
+                <tr>
+                    <td><p>“Greed leads to destruction.”</p></td>
+                    <td>The Two Fish and the Frog (Moral of a tale)</td>
+                    <td>One fish refuses to leave a drying pond, blinded by its desire for the last remaining water, and perishes along with another fish who stayed with him. The wise frog escapes. This fable warns that insatiable greed, combined with stubbornness and an unwillingness to adapt, inevitably leads to ruin and loss.</td>
+                </tr>
+                <tr>
+                    <td><p>“Better to lose a little than all.”</p></td>
+                    <td>The Brahmin and the Goat (Moral of a tale)</td>
+                    <td>A Brahmin is tricked by rogues into giving up his valuable goat by making him doubt his own senses. This fable teaches the importance of prudence and not being easily swayed by false opinions, suggesting that sometimes it is wiser to accept a small loss or inconvenience than to risk losing everything due to stubbornness or deception.</td>
+                </tr>
+                 <tr>
+                    <td><p>“Do not reveal your plans to everyone.”</p></td>
+                    <td>The Crow and the Serpent (Moral of a tale)</td>
+                    <td>The crow successfully takes revenge on the serpent by devising a clever plan and executing it secretly. If the serpent had known the plan, it could have been foiled. This fable highlights the strategic importance of discretion and secrecy when planning actions, particularly when dealing with adversaries.</td>
+                </tr>
+                <tr>
+                    <td><p>“The wise act first; fools repent later.”</p></td>
+                    <td>The Lion and the Jackal (Moral of a tale)</td>
+                    <td>This proverb emphasizes the value of foresight and timely action. A wise individual anticipates potential problems and acts proactively, avoiding negative consequences. A foolish person acts impulsively or delays action, only understanding their error and regretting it after suffering the negative outcome. Act with foresight.</td>
+                </tr>
+                <tr>
+                    <td><p>“A false friend is more dangerous than an enemy.”</p></td>
+                    <td>The Monkey and the Crocodile (Moral of the frame story)</td>
+                    <td>The crocodile's betrayal is particularly dangerous because the monkey trusts him as a friend, making him vulnerable to the hidden malicious intent. This quote highlights that deception and harm from someone trusted are more insidious and painful than open opposition from a known enemy. Choose companions with care.</td>
+                </tr>
+                <tr>
+                    <td><p>“Look before you leap.”</p></td>
+                    <td>The Jackal and the War Drum (Moral of a tale)</td>
+                    <td>A jackal is initially frightened by the sound of a war drum but investigates its source cautiously before reacting fully. This fable, also a common Aesop fable, reinforces the importance of gathering information, assessing a situation, and considering potential consequences before taking action, especially when faced with something unknown or intimidating.</td>
+                </tr>
+                <tr>
+                    <td><p>“Cunning beats power.”</p></td>
+                    <td>The Rabbit and the Lion (Moral of a tale)</td>
+                    <td>A small, physically weaker rabbit is able to defeat a large, powerful lion by using its intelligence and cunning to trick the lion into falling into a well. This fable is a prime example of how cleverness, wit, and strategic thinking can be more effective in overcoming obstacles than brute physical force or size. Brains over brawn prevails.</td>
+                </tr>
+                <tr>
+                    <td><p>“Fate helps those who help themselves.”</p></td>
+                    <td>The Crane and the Crab (Moral of a tale)</td>
+                    <td>A crane preying on fish is outsmarted and caught by a crab who uses its own quick thinking and action to survive. The crab doesn't passively accept its fate but actively uses its abilities. This proverb suggests that while fate may present challenges, individual effort, intelligence, and proactive measures are necessary to influence outcomes and secure survival.</td>
+                </tr>
+                <tr>
+                    <td><p>“Friendship with the wicked brings only harm.”</p></td>
+                    <td>The Monkey and the Crocodile (Moral of the frame story)</td>
+                    <td>The monkey's ill-fated association with the treacherous crocodile demonstrates the danger of forming close bonds with individuals who possess bad character. Their inherent wickedness will inevitably lead to negative consequences, harm, and potential destruction for their companions. Choose friends based on their virtue.</td>
+                </tr>
+                <tr>
+                    <td><p>“Appearances are deceptive.”</p></td>
+                    <td>The Blue Jackal (Moral of a tale)</td>
+                    <td>A jackal accidentally colored blue uses his unusual appearance to deceive other animals into believing he is a special, powerful being, gaining authority based solely on how he looks. His true nature is eventually revealed, leading to his downfall. This fable teaches that outward appearances can be misleading and one should not judge solely based on how things or people look.</td>
+                </tr>
+                 <tr>
+                    <td><p>“Never underestimate the weak.”</p></td>
+                    <td>The Elephant and the Mice (Moral of a tale)</td>
+                    <td>This fable highlights the folly of judging capabilities based on size or perceived strength. The physically small and seemingly insignificant mice collectively overcome the mighty elephants through unity and cleverness, demonstrating that strength, influence, and the ability to make an impact can come from unexpected sources.</td>
+                </tr>
+                <tr>
+                    <td><p>“A bird in hand is worth two in the bush.”</p></td>
+                    <td>The Heron and the Crab (Moral of a tale)</td>
+                    <td>A heron with a crab (a 'bird in hand') releases it, hoping to catch more valuable fish (the 'two in the bush'), and ends up with nothing. This proverb advises valuing and securing what one currently possesses rather than risking it for the uncertain possibility of gaining something potentially greater but not yet obtained. Prudence over speculation.</td>
+                </tr>
+                <tr>
+                    <td><p>“Even the patient lose patience with betrayal.”</p></td>
+                    <td>The Deer and the Crow (Moral of a tale)</td>
+                    <td>A crow repeatedly warns a trusting deer about a deceptive jackal. The deer's patience and initial willingness to overlook the jackal's flaws are eventually exhausted by consistent acts of treachery. This quote suggests that while patience is a virtue, there are limits to how much deceit and betrayal one can endure before trust is irrevocably broken.</td>
+                </tr>
+                <tr>
+                    <td><p>“Beware of advice from enemies.”</p></td>
+                    <td>The Lion, the Jackal, and the Camel (Moral of a tale)</td>
+                    <td>The jackal, an adversary to the camel, offers counsel that ultimately serves his own predatory interests, leading to the camel's demise. This quote provides a crucial warning against accepting advice or guidance from those who are not well-intentioned, as their counsel is likely designed for their benefit and your detriment. Consider the source carefully.</td>
+                </tr>
+                 <tr>
+                    <td><p>“Actions reveal character, not words.”</p></td>
+                    <td>The Cat and the Mice (Moral of a tale)</td>
+                    <td>A cat pretends to be pious and reformed to lure the mice, but its true predatory nature is revealed through its subsequent actions. This fable teaches that one should assess the true nature and intentions of others based on their consistent behavior and deeds rather than simply believing their verbal assurances or outward appearances. Deeds are more reliable than words.</td>
+                </tr>
+                <tr>
+                    <td><p>“Success comes not by strength, but strategy.”</p></td>
+                    <td>The Crows and the Serpent (Moral of a tale)</td>
+                    <td>The crows, physically weaker than the serpent that threatens their young, successfully defeat it not through brute force but by devising and executing a clever strategic plan. This fable highlights that achieving victory or overcoming a more powerful adversary often depends more on intelligent planning, tactics, and strategy than on physical might alone. Brains outmaneuver brawn.</td>
+                </tr>
+                <tr>
+                    <td><p>“He who teaches a fool, wastes his wisdom.”</p></td>
+                    <td>The Foolish Turtle (Moral implied)</td>
+                    <td>Attempting to impart valuable knowledge, skills, or wisdom to an individual who is unwilling, incapable, or unreceptive to learning is a fruitless effort. This quote suggests that one's valuable intellectual resources and efforts should be directed towards those who are receptive and able to benefit from them, rather than being wasted on those who cannot or will not learn.</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
