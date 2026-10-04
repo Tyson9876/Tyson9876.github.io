@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Global Cross & Swastika Morphology Simulation</title>
+  <style>
+    :root {
+      --bg: #0b1120;
+      --card: #1e293b;
+      --border: #334155;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-hover: #0284c7;
+      --danger: #ef4444;
+      --ink: #0f172a;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1.5rem 1rem 3rem;
+    }
+
+    header {
+      max-width: 900px;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      background: linear-gradient(135deg, #38bdf8, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    p.subtitle {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    .master-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      justify-content: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 0.75rem 1.25rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .btn {
+      background: #334155;
+      color: var(--text);
+      border: 1px solid #475569;
+      padding: 0.45rem 0.85rem;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.15s ease;
+    }
+
+    .btn:hover { background: #475569; }
+    .btn.primary { background: var(--accent); color: var(--ink); border-color: var(--accent); }
+    .btn.primary:hover { background: var(--accent-hover); color: #fff; }
+
+    /* Grid layout */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      max-width: 1280px;
+      width: 100%;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    .canvas-wrap {
+      width: 180px;
+      height: 180px;
+      background: #ffffff;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: grab;
+      user-select: none;
+      box-shadow: inset 0 0 0 1px #cbd5e1;
+    }
+
+    .canvas-wrap:active { cursor: grabbing; }
+
+    svg { width: 100%; height: 100%; display: block; }
+
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin: 0.85rem 0 0.2rem;
+      text-align: center;
+    }
+
+    .badge {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.5rem;
+      border-radius: 12px;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge.dharmic { background: #065f46; color: #6ee7b7; }
+    .badge.buddhist { background: #1e3a8a; color: #93c5fd; }
+    .badge.indigenous { background: #78350f; color: #fde68a; }
+    .badge.greco { background: #581c87; color: #e9d5ff; }
+    .badge.heraldic { background: #374151; color: #d1d5db; }
+    .badge.political { background: #881337; color: #fecdd3; }
+
+    .ctrl-col {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .ctrl-row {
+      display: flex;
+      gap: 0.4rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .slider-box {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      width: 100%;
+    }
+
+    .slider-label {
+      font-size: 0.7rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--accent);
+      cursor: pointer;
+      height: 4px;
+      background: #334155;
+      border-radius: 2px;
+    }
+
+    .desc {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.4;
+      margin-top: 0.6rem;
+      min-height: 55px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Global Cross & Swastika Morphology Simulation</h1>
+    <p class="subtitle">
+      Explore the geometric, cultural, and chirality differences between Dharmic, East Asian, 
+      European antiquity, indigenous, and German heraldic/political symbols. Rotate, mirror, and simulate independently.
+    </p>
+  </header>
+
+  <div class="master-bar">
+    <button class="btn primary" id="btnPlayAll">▶ Play All</button>
+    <button class="btn" id="btnPauseAll">⏸ Pause All</button>
+    <button class="btn" id="btnFlipChiralityAll">🪞 Mirror/Flip All (Chirality)</button>
+    <button class="btn" id="btnResetAll">↺ Reset Orientations</button>
+  </div>
+
+  <div class="grid" id="symbolsGrid"></div>
+
+  <script>
+    const symbolTypes = [
+      {
+        id: "hindu",
+        title: "Hindu Svastika",
+        badge: "Dharmic (Auspicious)",
+        badgeClass: "dharmic",
+        baseAngle: 0,
+        speed: 45,
+        dir: 1,
+        mirrored: false,
+        desc: "Clockwise orthogonal cross with 4 dots representing the 4 Vedas and Purusharthas. Associated with Surya and well-being.",
+        render: () => `
+          <g stroke="#b91c1c" stroke-width="4.5" fill="none" stroke-linecap="square">
+            <path d="M 0,0 L 0,-42 L 26,-42 M 0,0 L 42,0 L 42,26 M 0,0 L 0,42 L -26,42 M 0,0 L -42,0 L -42,-26"/>
+            <circle cx="20" cy="-20" r="3.5" fill="#b91c1c" stroke="none"/>
+            <circle cx="20" cy="20" r="3.5" fill="#b91c1c" stroke="none"/>
+            <circle cx="-20" cy="20" r="3.5" fill="#b91c1c" stroke="none"/>
+            <circle cx="-20" cy="-20" r="3.5" fill="#b91c1c" stroke="none"/>
+          </g>
+        `
+      },
+      {
+        id: "manji",
+        title: "Buddhist Manji (Omote)",
+        badge: "Buddhism / East Asia",
+        badgeClass: "buddhist",
+        baseAngle: 0,
+        speed: 45,
+        dir: -1,
+        mirrored: false,
+        desc: "Counter-clockwise (卍) symbol representing the Buddha's heart, universal peace, and infinite compassion. Ubiquitous on East Asian temple maps.",
+        render: () => `
+          <g stroke="#1e3a8a" stroke-width="5" fill="none" stroke-linecap="square">
+            <path d="M 0,0 L 0,-44 L -26,-44 M 0,0 L 44,0 L 44,-26 M 0,0 L 0,44 L 26,44 M 0,0 L -44,0 L -44,26"/>
+          </g>
+        `
+      },
+      {
+        id: "whirling-log",
+        title: "Navajo Whirling Log",
+        badge: "Native American",
+        badgeClass: "indigenous",
+        baseAngle: 0,
+        speed: 45,
+        dir: 1,
+        mirrored: false,
+        desc: "Sacred Diné/Hopi motif (*Tsil no'oli*) representing navigation, ritual balance, and guidance from Holy People across the river of life.",
+        render: () => `
+          <g stroke="#92400e" stroke-width="4" fill="none" stroke-linecap="round">
+            <circle cx="0" cy="0" r="48" stroke="#d97706" stroke-width="1.5" stroke-dasharray="4 4" />
+            <path d="M 0,0 L 0,-40 L 22,-40 M 0,0 L 40,0 L 40,22 M 0,0 L 0,40 L -22,40 M 0,0 L -40,0 L -40,-22"/>
+            <!-- End feather accents -->
+            <line x1="22" y1="-44" x2="22" y2="-36" stroke="#b45309" stroke-width="3"/>
+            <line x1="44" y1="22" x2="36" y2="22" stroke="#b45309" stroke-width="3"/>
+            <line x1="-22" y1="44" x2="-22" y2="36" stroke="#b45309" stroke-width="3"/>
+            <line x1="-44" y1="-22" x2="-36" y2="-22" stroke="#b45309" stroke-width="3"/>
+            <circle cx="0" cy="0" r="3" fill="#92400e"/>
+          </g>
+        `
+      },
+      {
+        id: "gammadion",
+        title: "Greco-Roman Gammadion",
+        badge: "Classical Antiquity",
+        badgeClass: "greco",
+        baseAngle: 0,
+        speed: 45,
+        dir: 1,
+        mirrored: false,
+        desc: "Meander pattern constructed from 4 interlocking capital Greek letters Gamma (Γ). Pervasive in Roman architecture, mosaics, and textiles.",
+        render: () => `
+          <g stroke="#6b21a8" stroke-width="4.5" fill="none" stroke-linejoin="miter">
+            <path d="M 0,0 L 0,-42 L 32,-42 L 32,-20 M 0,0 L 42,0 L 42,32 L 20,32 M 0,0 L 0,42 L -32,42 L -32,20 M 0,0 L -42,0 L -42,-32 L -20,-32"/>
+          </g>
+        `
+      },
+      {
+        id: "ironcross",
+        title: "Iron Cross (Cross Pattée)",
+        badge: "German Military Heraldry",
+        badgeClass: "heraldic",
+        baseAngle: 0,
+        speed: 30,
+        dir: 1,
+        mirrored: false,
+        desc: "Derived from the 12th-century Teutonic Knights; established 1813 in Prussia. A flared cross with NO hooks. Not a swastika.",
+        render: () => `
+          <g fill="#0f172a" stroke="#475569" stroke-width="2">
+            <!-- Flared arms of cross pattee -->
+            <path d="M -10,-10 C -25,-30 -25,-42 -40,-45 L -45,-40 C -42,-25 -30,-25 -10,-10
+                     C -30,-25 -42,-25 -45,-40 L -40,-45 C -25,-42 -25,-30 -10,-10 Z" style="display:none;"/>
+            <path d="M -8,-8 L -36,-36 C -20,-44 20,-44 36,-36 L 8,-8
+                     L 36,-36 C 44,-20 44,20 36,36 L 8,8
+                     L 36,36 C 20,44 -20,44 -36,36 L -8,8
+                     L -36,36 C -44,20 -44,-20 -36,-36 Z" fill="#1e293b" stroke="#000" stroke-width="3"/>
+            <path d="M -5,-5 L -26,-26 C -15,-32 15,-32 26,-26 L 5,-5
+                     L 26,-26 C 32,-15 32,15 26,26 L 5,5
+                     L 26,26 C 15,32 -15,32 -26,26 L -5,5
+                     L -26,26 C -32,15 -32,-15 -26,-26 Z" fill="#f8fafc" stroke="#000" stroke-width="1.5"/>
+            <circle cx="0" cy="0" r="4" fill="#0f172a"/>
+          </g>
+        `
+      },
+      {
+        id: "hakenkreuz",
+        title: "Hakenkreuz (Nazi Emblem)",
+        badge: "Political / Hate Symbol",
+        badgeClass: "political",
+        baseAngle: 45,
+        speed: 45,
+        dir: 1,
+        mirrored: false,
+        desc: "Right-facing hooked cross rotated explicitly by 45°. Appropriated in the 1920s by the NSDAP. Strictly regulated/banned in Germany under StGB § 86a.",
+        render: () => `
+          <!-- Tilted 45 degrees by default -->
+          <circle cx="0" cy="0" r="50" fill="#dc2626" />
+          <circle cx="0" cy="0" r="38" fill="#ffffff" />
+          <g stroke="#000000" stroke-width="7.5" fill="none" stroke-linecap="square">
+            <path d="M 0,0 L 0,-26 L 18,-26 M 0,0 L 26,0 L 26,18 M 0,0 L 0,26 L -18,26 M 0,0 L -26,0 L -26,-18"/>
+          </g>
+        `
+      }
+    ];
+
+    const state = symbolTypes.map(s => ({
+      ...s,
+      angle: s.baseAngle,
+      isPlaying: false,
+      isDragging: false,
+      lastPointerAngle: 0
+    }));
+
+    const grid = document.getElementById("symbolsGrid");
+
+    symbolTypes.forEach((sym, i) => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.id = `card-${sym.id}`;
+      card.innerHTML = `
+        <div class="canvas-wrap" id="canvas-${sym.id}">
+          <svg viewBox="0 0 140 140">
+            <g id="transform-group-${sym.id}" transform="translate(70, 70) rotate(${sym.baseAngle}) scale(1, 1)">
+              ${sym.render()}
+            </g>
+          </svg>
+        </div>
+        <div class="card-title">${sym.title}</div>
+        <div class="badge ${sym.badgeClass}">${sym.badge}</div>
+        
+        <div class="ctrl-col">
+          <div class="ctrl-row">
+            <button class="btn" id="play-${sym.id}">▶ Play</button>
+            <button class="btn" id="dir-${sym.id}" title="Flip Rotation Direction">↻ CW</button>
+            <button class="btn" id="mirror-${sym.id}" title="Reflect / Invert Chirality">🪞 Flip</button>
+          </div>
+          
+          <div class="slider-box">
+            <div class="slider-label">
+              <span>Rotation Angle</span>
+              <span id="ang-txt-${sym.id}">${sym.baseAngle}°</span>
+            </div>
+            <input type="range" id="angle-${sym.id}" min="0" max="360" value="${sym.baseAngle}"/>
+          </div>
+
+          <div class="desc">${sym.desc}</div>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+
+    // Wire events
+    state.forEach((st) => {
+      const group = document.getElementById(`transform-group-${st.id}`);
+      const btnPlay = document.getElementById(`play-${st.id}`);
+      const btnDir = document.getElementById(`dir-${st.id}`);
+      const btnMirror = document.getElementById(`mirror-${st.id}`);
+      const angleSlider = document.getElementById(`angle-${st.id}`);
+      const angleTxt = document.getElementById(`ang-txt-${st.id}`);
+      const canvas = document.getElementById(`canvas-${st.id}`);
+
+      function applyTransform() {
+        const sx = st.mirrored ? -1 : 1;
+        group.setAttribute("transform", `translate(70, 70) rotate(${st.angle}) scale(${sx}, 1)`);
+        const norm = Math.round(((st.angle % 360) + 360) % 360);
+        angleTxt.textContent = `${norm}°`;
+        if (document.activeElement !== angleSlider) {
+          angleSlider.value = norm;
+        }
+      }
+
+      btnPlay.addEventListener("click", () => {
+        st.isPlaying = !st.isPlaying;
+        btnPlay.textContent = st.isPlaying ? "⏸ Pause" : "▶ Play";
+        btnPlay.classList.toggle("primary", st.isPlaying);
+      });
+
+      btnDir.addEventListener("click", () => {
+        st.dir *= -1;
+        btnDir.textContent = st.dir === 1 ? "↻ CW" : "↺ CCW";
+      });
+
+      btnMirror.addEventListener("click", () => {
+        st.mirrored = !st.mirrored;
+        btnMirror.classList.toggle("primary", st.mirrored);
+        applyTransform();
+      });
+
+      angleSlider.addEventListener("input", (e) => {
+        st.angle = parseFloat(e.target.value);
+        applyTransform();
+      });
+
+      // Pointer drag interaction
+      function getAngle(e) {
+        const rect = canvas.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+        return Math.atan2(clientY - cy, clientX - cx) * (180 / Math.PI);
+      }
+
+      canvas.addEventListener("mousedown", (e) => {
+        st.isDragging = true;
+        st.lastPointerAngle = getAngle(e);
+        window.addEventListener("mousemove", onMove);
+        window.addEventListener("mouseup", onUp);
+      });
+
+      function onMove(e) {
+        if (!st.isDragging) return;
+        const a = getAngle(e);
+        let delta = a - st.lastPointerAngle;
+        if (delta > 180) delta -= 360;
+        if (delta < -180) delta += 360;
+        st.angle += delta;
+        st.lastPointerAngle = a;
+        applyTransform();
+      }
+
+      function onUp() {
+        st.isDragging = false;
+        window.removeEventListener("mousemove", onMove);
+        window.removeEventListener("mouseup", onUp);
+      }
+
+      st.applyTransform = applyTransform;
+    });
+
+    // Master Controls
+    document.getElementById("btnPlayAll").addEventListener("click", () => {
+      state.forEach(s => {
+        s.isPlaying = true;
+        const b = document.getElementById(`play-${s.id}`);
+        b.textContent = "⏸ Pause";
+        b.classList.add("primary");
+      });
+    });
+
+    document.getElementById("btnPauseAll").addEventListener("click", () => {
+      state.forEach(s => {
+        s.isPlaying = false;
+        const b = document.getElementById(`play-${s.id}`);
+        b.textContent = "▶ Play";
+        b.classList.remove("primary");
+      });
+    });
+
+    document.getElementById("btnFlipChiralityAll").addEventListener("click", () => {
+      state.forEach(s => {
+        s.mirrored = !s.mirrored;
+        const b = document.getElementById(`mirror-${s.id}`);
+        b.classList.toggle("primary", s.mirrored);
+        s.applyTransform();
+      });
+    });
+
+    document.getElementById("btnResetAll").addEventListener("click", () => {
+      state.forEach(s => {
+        s.isPlaying = false;
+        s.angle = s.baseAngle;
+        s.mirrored = false;
+        document.getElementById(`play-${s.id}`).textContent = "▶ Play";
+        document.getElementById(`play-${s.id}`).classList.remove("primary");
+        document.getElementById(`mirror-${s.id}`).classList.remove("primary");
+        s.applyTransform();
+      });
+    });
+
+    // Animation Loop
+    let last = performance.now();
+    function loop(now) {
+      const dt = (now - last) / 1000;
+      last = now;
+
+      state.forEach(s => {
+        if (s.isPlaying && !s.isDragging) {
+          s.angle += s.dir * s.speed * dt;
+          s.applyTransform();
+        }
+      });
+
+      requestAnimationFrame(loop);
+    }
+    requestAnimationFrame(loop);
+  </script>
+</body>
+</html>
